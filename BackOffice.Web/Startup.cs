@@ -1,4 +1,6 @@
 using DataLayer;
+using DataLayer.Repositories;
+using DataLayer.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +25,7 @@ namespace BackOffice.Web
             services.AddRazorPages();
             services.AddDbContextPool<AppDbContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("UTM_Notification")));
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
