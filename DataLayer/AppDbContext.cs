@@ -34,6 +34,8 @@ namespace DataLayer
             modelBuilder.Entity<Sender>(entity =>
             {
                 entity.HasKey(x => x.Id);
+                entity.Property(x => x.Service).HasMaxLength(10);
+                entity.HasIndex(x => new { x.Name, x.Service }).IsUnique();
                 entity.HasMany(x => x.Notifications);
             });
         }
