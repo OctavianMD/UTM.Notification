@@ -8,6 +8,7 @@ namespace DataLayer
         public DbSet<Notification> Notifications;
         public DbSet<Sender> Sender;
         public DbSet<Receiver> Receiver;
+        public DbSet<Contact> Contact;
 
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
@@ -28,6 +29,7 @@ namespace DataLayer
             {
                 entity.HasKey(x => x.Id);
                 entity.HasIndex(x => x.Idnp);
+                entity.HasMany(x => x.Contacts);
                 entity.HasMany(x => x.Notifications);
             });
 
@@ -37,6 +39,12 @@ namespace DataLayer
                 entity.Property(x => x.Service).HasMaxLength(10);
                 entity.HasIndex(x => new { x.Name, x.Service }).IsUnique();
                 entity.HasMany(x => x.Notifications);
+            });
+
+            modelBuilder.Entity<Contact>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.HasOne(x => x.Receiver);
             });
         }
     }

@@ -4,15 +4,14 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace BackOffice.Web.Pages
 {
-    public class PrivacyModel : PageModel
+    public class FetchDataModel : PageModel
     {
-        private readonly ILogger<PrivacyModel> _logger;
+        private readonly ILogger<FetchDataModel> _logger;
 
-        public PrivacyModel(ILogger<PrivacyModel> logger)
+        public FetchDataModel(ILogger<FetchDataModel> logger)
         {
             _logger = logger;
         }

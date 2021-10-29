@@ -43,7 +43,6 @@ namespace BackOffice.API.Controllers
         [HttpGet("receivers")]
         public List<ReceiverApi> Receivers()
         {
-            // ToDO Add contacts to receiver
             _logger.LogInformation("Getting receivers");
             return new List<ReceiverApi>
             {
@@ -51,19 +50,22 @@ namespace BackOffice.API.Controllers
                 {
                     Name = "Octavian",
                     Surname = "Godonoga",
-                    Idnp = "111111111"
+                    Idnp = "111111111",
+                    Email = "og@gmail.com"
                 },
                 new ReceiverApi
                 {
                     Name = "Valeria",
                     Surname = "Cebotari",
-                    Idnp = "222222222"
+                    Idnp = "222222222",
+                    Email = "vc@gmail.com"
                 },
                 new ReceiverApi
                 {
                     Name = "Sandu",
                     Surname = "Chiriță",
-                    Idnp = "3333333333"
+                    Idnp = "3333333333",
+                    Email = "sc@gmail.com"
                 }
             };
         }

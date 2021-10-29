@@ -12,5 +12,6 @@ namespace DataLayer.Entities
         public string Surname { get; set; }
 
         public List<Notification> Notifications { get; set; }
+        public List<Contact> Contacts { get; set; }
     }
 }
