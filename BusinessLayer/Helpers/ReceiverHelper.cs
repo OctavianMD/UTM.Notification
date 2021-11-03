@@ -4,7 +4,6 @@ using BusinessLayer.Mapper;
 using BusinessLayer.Validators;
 using CommonLayer.ApiModels;
 using DataLayer.Entities;
-using DataLayer.Enums;
 using DataLayer.Repositories.Interfaces;
 using Newtonsoft.Json;
 

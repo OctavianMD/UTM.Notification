@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using CommonLayer.Enums;
 
-namespace DataLayer.Entities
+namespace CommonLayer.ViewModels
 {
-    public class Notification
+    public class NotificationViewModel
     {
         public Guid Id { get; set; }
         public string Text { get; set; }
@@ -12,9 +11,6 @@ namespace DataLayer.Entities
         public Channel Channel { get; set; }
         public string From { get; set; }
         public string To { get; set; }
-
-        public Sender Sender { get; set; }
-        public List<Receiver> Receivers { get; set; }
     }
 
 }

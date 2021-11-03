@@ -1,0 +1,34 @@
+﻿@using CommonLayer.ViewModels
+@model List<SenderViewModel>
+
+<div class="container">
+    <h2>Sender table</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>@nameof(SenderViewModel.Service)</th>
+                <th>@nameof(SenderViewModel.Name)</th>
+                <th>@nameof(SenderViewModel.Channels)</th>
+            </tr>
+        </thead>
+        <tbody>
+        @if (Model == null || Model.Count < 1)
+        {
+            <tr>
+                <td colspan="3">No data</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var sender in Model)
+            {
+                <tr>
+                    <td>@sender.Service</td>
+                    <td>@sender.Name</td>
+                    <td>@sender.Channels</td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+</div>

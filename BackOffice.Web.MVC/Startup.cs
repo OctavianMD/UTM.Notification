@@ -1,4 +1,5 @@
 using System.Net.Http;
+using BackOffice.Web.MVC.Configurations;
 using BusinessLayer.Helpers;
 using CommonLayer;
 using Microsoft.AspNetCore.Builder;
@@ -27,24 +28,7 @@ namespace BackOffice.Web.MVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextPool<AppDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("UTM_Notification")));
-
-            services.AddHttpClient(Constants.FetchDataHttpClientName).ConfigurePrimaryHttpMessageHandler(() =>
-            {
-                var handler = new HttpClientHandler();
-                //handler.ClientCertificates.Add(CertificateHelper.LoadPrivateCertificate(
-                //    Configuration.GetValue<string>("PhysicalPersonCertificatePath"),
-                //    Configuration.GetValue<string>("PhysicalPersonCertificatePassword")));
-                return handler;
-            });
-
-            services.AddScoped<IFetchDataService, FetchDataService>();
-            services.AddScoped<IFetchDataClient, FetchDataHttpClient>();
-            services.AddScoped<SenderHelper>();
-            services.AddScoped<ReceiverHelper>();
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddControllersWithViews();
+            services.AppServices(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

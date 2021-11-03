@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using DataLayer.Enums;
+using CommonLayer.Enums;
 
 namespace DataLayer.Entities
 {

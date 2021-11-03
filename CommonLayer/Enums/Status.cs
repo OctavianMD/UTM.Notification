@@ -1,4 +1,4 @@
-﻿namespace DataLayer.Enums
+﻿namespace CommonLayer.Enums
 {
     public enum Status
     {

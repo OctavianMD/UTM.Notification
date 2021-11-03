@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using CommonLayer.ApiModels;
+using CommonLayer.Enums;
 using DataLayer.Entities;
-using DataLayer.Enums;
 
 namespace BusinessLayer.Mapper
 {

@@ -1,17 +1,13 @@
-﻿using System.Collections.Generic;
-using CommonLayer.Enums;
+﻿using CommonLayer.Enums;
 
-namespace DataLayer.Entities
+namespace CommonLayer.ViewModels
 {
-    public class Receiver
+    public class ReceiverViewModel
     {
         public int Id { get; set; }
         public string Idnp { get; set; }
         public Channel PreferredChannels { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-
-        public List<Notification> Notifications { get; set; }
-        public List<Contact> Contacts { get; set; }
     }
 }

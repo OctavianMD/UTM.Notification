@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using BusinessLayer.Mapper;
 using BusinessLayer.Validators;
 using CommonLayer.ApiModels;
+using CommonLayer.ViewModels;
 using DataLayer.Entities;
-using DataLayer.Enums;
 using DataLayer.Repositories.Interfaces;
 using Newtonsoft.Json;
 
@@ -38,6 +38,13 @@ namespace BusinessLayer.Helpers
                 counter++;
             }
             return counter;
+        }
+
+        public async Task<List<SenderViewModel>> GetAll()
+        {
+            // Todo change db entities
+            var senders = await _senderRepository.GetAll(x=>true);
+            return senders.ToViewModel();
         }
     }
 }
