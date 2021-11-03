@@ -57,6 +57,19 @@ namespace DataLayer.Repositories
             return null;
         }
 
+        public async Task<bool> Any(Expression<Func<T, bool>> expression)
+        {
+            try
+            {
+                return await _appDbContext.Set<T>().AnyAsync(expression);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw new ApplicationException();
+            }
+        }
+
         public async Task<T> Update(T entity)
         {
             try

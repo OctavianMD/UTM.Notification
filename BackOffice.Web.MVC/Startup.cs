@@ -1,4 +1,5 @@
 using System.Net.Http;
+using BusinessLayer.Helpers;
 using CommonLayer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,8 +39,10 @@ namespace BackOffice.Web.MVC
                 return handler;
             });
 
-            services.AddTransient<IFetchDataService, FetchDataService>();
-            services.AddTransient<IFetchDataClient, FetchDataHttpClient>();
+            services.AddScoped<IFetchDataService, FetchDataService>();
+            services.AddScoped<IFetchDataClient, FetchDataHttpClient>();
+            services.AddScoped<SenderHelper>();
+            services.AddScoped<ReceiverHelper>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddControllersWithViews();
         }
