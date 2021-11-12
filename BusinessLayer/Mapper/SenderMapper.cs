@@ -20,6 +20,20 @@ namespace BusinessLayer.Mapper
             };
         }
 
+        public static Sender ToEntity(this SenderViewModel sender)
+        {
+            var entity = new Sender
+            {
+                AllowedChannels = sender.Channels,
+                Name = sender.Name,
+                Service = sender.Service,
+                Notifications = new List<Notification>()
+            };
+            if (sender.Id > 0)
+                entity.Id = sender.Id;
+            return entity;
+        }
+
         public static List<SenderViewModel> ToViewModel(this IList<Sender> senders)
         {
             return senders.Select(x => new SenderViewModel
@@ -29,6 +43,17 @@ namespace BusinessLayer.Mapper
                 Service = x.Service,
                 Channels = x.AllowedChannels
             }).ToList();
+        }
+
+        public static SenderViewModel ToViewModel(this Sender sender)
+        {
+            return new SenderViewModel
+            {
+                Id = sender.Id,
+                Name = sender.Name,
+                Service = sender.Service,
+                Channels = sender.AllowedChannels
+            };
         }
     }
 }

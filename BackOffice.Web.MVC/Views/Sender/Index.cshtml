@@ -3,19 +3,26 @@
 
 <div class="container">
     <h2>Sender table</h2>
+    <div class="row mb-2">
+        <div class="col-sm-4 text-center">
+            <a class="btn btn-primary btn-block" href="@Url.Action("Add")">Add sender</a>
+        </div>
+    </div>
     <table class="table table-bordered">
         <thead>
-            <tr>
-                <th>@nameof(SenderViewModel.Service)</th>
-                <th>@nameof(SenderViewModel.Name)</th>
-                <th>@nameof(SenderViewModel.Channels)</th>
-            </tr>
+        <tr>
+            <th>@nameof(SenderViewModel.Service)</th>
+            <th>@nameof(SenderViewModel.Name)</th>
+            <th>@nameof(SenderViewModel.Channels)</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
         </thead>
         <tbody>
         @if (Model == null || Model.Count < 1)
         {
             <tr>
-                <td colspan="3">No data</td>
+                <td colspan="5">No data</td>
             </tr>
         }
         else
@@ -26,9 +33,35 @@
                     <td>@sender.Service</td>
                     <td>@sender.Name</td>
                     <td>@sender.Channels</td>
+                    <td><a class="btn btn-warning btn-block" href="@Url.Action("Edit")?id=@sender.Id"><i class="bi bi-file-word"></i></a></td>
+                    <td><a class="btn btn-danger btn-block" href="@Url.Action("Delete")?id=@sender.Id"><i class="bi bi-trash"></i></a></td>
                 </tr>
             }
         }
         </tbody>
     </table>
 </div>
+
+@section Scripts{ 
+    
+    <script>
+
+        function removeSender(id) {
+            const request = new XMLHttpRequest();
+            request.addEventListener('load', requestResponse);
+            request.open('GET', '@Url.Action("Delete")');
+            request.send(id);
+        }
+
+        function requestResponse(request) {
+
+            console.log('Response', request);
+            if (request.status === 200) {
+                const response = JSON.parse(request.response);
+                if (response.success) {
+                    document.getElementById('');
+                }
+            }
+        }
+    </script>
+}

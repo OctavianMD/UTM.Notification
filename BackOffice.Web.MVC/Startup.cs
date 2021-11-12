@@ -1,18 +1,9 @@
-using System.Net.Http;
 using BackOffice.Web.MVC.Configurations;
-using BusinessLayer.Helpers;
-using CommonLayer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using DataLayer;
-using DataLayer.Repositories;
-using DataLayer.Repositories.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using ServiceLayer.Interfaces;
-using ServiceLayer.Services;
 
 namespace BackOffice.Web.MVC
 {

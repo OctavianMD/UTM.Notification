@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System.Net.Http;
 using BusinessLayer.Helpers;
 using CommonLayer;
 using DataLayer;
@@ -45,6 +41,7 @@ namespace BackOffice.Web.MVC.Configurations
 
             services.AddScoped<IFetchDataService, FetchDataService>();
             services.AddScoped<IFetchDataClient, FetchDataHttpClient>();
+            services.AddScoped<ISenderService, SenderService>();
 
             #endregion
 

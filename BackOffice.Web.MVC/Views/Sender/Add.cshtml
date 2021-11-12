@@ -1,0 +1,32 @@
+﻿@model CommonLayer.ViewModels.SenderViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <form method="post" asp-action="Add">
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Service"></label>
+                    <input asp-for="Service" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Channels"></label>
+                    <select asp-for="Channels" class="form-control">
+                        <option value="1" selected="selected">Email</option>
+                        <option value="2">Sms</option>
+                        @*<option value="3">Sms, Email</option>*@
+                        <option value="4">Telegram</option>
+                        @*<option value="5">Telegram, Email</option>
+                        <option value="6">Telegram, Sms</option>
+                        <option value="7">Telegram, Sms, Email</option>*@
+                        @* Todo find solution for multiple selection *@
+                    </select>
+                </div>
+                <button class="btn btn-success" type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
